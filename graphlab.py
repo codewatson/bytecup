@@ -39,9 +39,9 @@ while line_file and len(line_file) > 0 :
 
 test = graphlab.SFrame({'user_id':  users, 'item_id': items})
 
-label_arr_t = model.predict(test)
+rates = model.predict(test)
 
 f = open("./bytecup2016data/test_graph_pos.csv", "w") 
-for user, item, label in zip(users, items, label_arr_t):
+for user, item, label in zip(users, items, rates):
     f.write(item + "," + user + "," + str(label) + "\n" )   
 
